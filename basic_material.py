@@ -17,7 +17,14 @@ rcParams["figure.dpi"] = 100
 rcParams.update({'font.size': 18})
 rcParams['axes.grid'] = True
 rcParams['lines.linewidth'] = 2.0
-                       
+ 
+#font = {'family': 'arial','color':  'darkred','weight': 'normal','size': 18}
+#plt.rcParams['figure.figsize'] = [12, 8.0]
+#plt.rcParams['figure.dpi'] = 300
+#plt.rcParams.update({"axes.grid" : True, "grid.color": "grey"})
+#plt.rcParams['grid.linestyle'] = ':'
+
+
 from IPython.display import display, Markdown
 from ipywidgets import interact, interactive, fixed, interact_manual
 import ipywidgets as widgets
