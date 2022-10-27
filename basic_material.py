@@ -1,4 +1,4 @@
-import shutil, sys, os.path, math, time
+import shutil, sys, os.path, math, time, subprocess
 
 import numpy as np
 from numpy import logspace, linspace
@@ -28,9 +28,17 @@ from scipy import signal
 from scipy.fft import fft, fftfreq, fftshift, ifft
 from scipy.signal import blackman
 
-import warnings
-warnings.filterwarnings("ignore", message="delta_grad == 0.0. Check if the approximated function is linear.")
+    
+try:
+    import IPython.display as ipd
+except Exception as e2:
+    print(e2)
+    subprocess.Popen('python3 -m pip install IPython', shell=True)    
+    import IPython.display as ipd
 
+from IPython.display import display, Markdown
+from ipywidgets import interact, interactive, fixed, interact_manual
+import ipywidgets as widgets
 from platform import python_version
 print("Running Python:",python_version())
 
