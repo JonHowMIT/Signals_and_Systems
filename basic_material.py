@@ -1,3 +1,6 @@
+from platform import python_version
+print("Running Python:",python_version())
+
 import shutil, sys, os.path, math, time, subprocess
 
 import numpy as np
@@ -28,7 +31,6 @@ from scipy import signal
 from scipy.fft import fft, fftfreq, fftshift, ifft
 from scipy.signal import blackman
 
-    
 try:
     import IPython.display as ipd
 except Exception as e2:
@@ -39,8 +41,6 @@ except Exception as e2:
 from IPython.display import display, Markdown
 from ipywidgets import interact, interactive, fixed, interact_manual
 import ipywidgets as widgets
-from platform import python_version
-print("Running Python:",python_version())
 
 SMALL_SIZE = 10
 MEDIUM_SIZE = 14
