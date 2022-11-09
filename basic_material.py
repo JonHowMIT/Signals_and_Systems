@@ -26,6 +26,8 @@ plt.rcParams['axes.grid'] = True
 
 from sympy import *
 import sympy as sym
+print("Running Sympy:",sym.__version__)
+init_printing(use_unicode=True)
 
 from scipy import signal
 from scipy.fft import fft, fftfreq, fftshift, ifft
@@ -58,6 +60,3 @@ def nicegrid(ax=plt):
     ax.grid(True, which='major', color='#666666', linestyle=':')
     ax.grid(True, which='minor', color='#999999', linestyle=':', alpha=0.2)
     ax.minorticks_on()
-
-print("Running Sympy:",sym.__version__)
-init_printing(use_unicode=True)
