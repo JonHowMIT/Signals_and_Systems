@@ -98,9 +98,9 @@ def Read_data(ser):
     return data
 
 def makeFig():
-    plt.plot(etime[-Npts:],theta[-Npts:],'b-',label='theta')
-    plt.plot(etime[-Npts:],gyro[-Npts:],'r--',label='gyro')
-    plt.plot(etime[-Npts:],Uinp[-Npts:],'g:',label='U')
+    plt.plot(etime[-Npts:],theta[-Npts:],'b-',label='theta [rad]')
+    plt.plot(etime[-Npts:],gyro[-Npts:],'r--',label='gyro [rad/s]')
+    plt.plot(etime[-Npts:],Uinp[-Npts:],'g:',label='U/100')
     plt.legend(loc=3)
 
 def main():
@@ -141,9 +141,9 @@ def main():
 
     # plot all data at the end        
     fig, ax = plt.subplots(figsize=(16,8))
-    plt.plot(etime[-(Nplot-10):],theta[-(Nplot-10):],'b-',label='theta')
-    plt.plot(etime[-(Nplot-10):],gyro[-(Nplot-10):],'r--',label='gyro')
-    plt.plot(etime[-(Nplot-10):],Uinp[-(Nplot-10):],'g:',label='U')
+    plt.plot(etime[-(Nplot-10):],theta[-(Nplot-10):],'b-',label='theta [rad]')
+    plt.plot(etime[-(Nplot-10):],gyro[-(Nplot-10):],'r--',label='gyro [rad/s]')
+    plt.plot(etime[-(Nplot-10):],Uinp[-(Nplot-10):],'g:',label='U/100')
     plt.legend(loc=3)
     plt.show()
 
