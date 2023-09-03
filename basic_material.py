@@ -78,8 +78,8 @@ try:
 except:
     IN_COLAB = False
 
-from simple_colors import *
-
-colors = ['k','b','r','m','g','Brown','DarkBlue','Tomato','Violet', 'Tan','Salmon','Pink',
-          'SaddleBrown', 'SpringGreen', 'RosyBrown','Silver',]
+#from simple_colors import *
+#
+#colors = ['k','b','r','m','g','Brown','DarkBlue','Tomato','Violet', 'Tan','Salmon','Pink',
+#          'SaddleBrown', 'SpringGreen', 'RosyBrown','Silver',]
 
