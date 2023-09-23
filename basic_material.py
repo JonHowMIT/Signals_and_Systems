@@ -27,8 +27,8 @@ plt.rcParams["figure.autolayout"] = True
 
 #from sympy import *
 import sympy as sym
-from sympy import lambdify, oo, Symbol, integrate, Heaviside, plot, Piecewise, init_printing
-from sympy import exp, plot, sin, cos, printing
+from sympy import lambdify, oo, Symbol, integrate, Heaviside, plot, Piecewise
+from sympy import exp, plot, sin, cos, printing, init_printing, simplify
 from sympy.testing.pytest import ignore_warnings
 print("Running Sympy:",sym.__version__)
 #init_printing(use_unicode=True)
@@ -60,6 +60,11 @@ plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
 plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
+def U(t):
+    u = t*0
+    u[t >= 0] = 1
+    return u
+
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -70,6 +75,16 @@ def nicegrid(ax=plt):
 
 def caption(txt,fig, xloc=0.5, yloc=-0.1):
     fig.text(xloc, yloc, txt, ha='center',size=BIGGER_SIZE,color='blue')
+
+if os.path.isdir("./data/"):
+    pass
+else:
+    os.mkdir("./data")
+
+if os.path.isdir("./figs/"):
+    pass
+else:
+    os.mkdir("./figs")
 
 try:
     import google.colab
