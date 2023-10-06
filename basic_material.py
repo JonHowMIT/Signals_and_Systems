@@ -71,6 +71,10 @@ warnings.filterwarnings("ignore")
 def nicegrid(ax=plt):
     ax.grid(True, which='major', color='#666666', linestyle=':')
     ax.grid(True, which='minor', color='#999999', linestyle=':', alpha=0.2)
+    try:
+        ax.axhline(y=0, color='k', linestyle='--',lw=1)
+    except:
+        ax.axhline(y=1, color='k', linestyle='--',lw=1)
     ax.minorticks_on()
 
 def caption(txt,fig, xloc=0.5, yloc=-0.1):
@@ -99,3 +103,5 @@ try:
     'SaddleBrown', 'SpringGreen', 'RosyBrown','Silver',]
 except:
     colors = ['k','b','r','m','g']
+
+r2d = 180/np.pi
