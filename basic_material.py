@@ -68,17 +68,27 @@ def U(t):
 import warnings
 warnings.filterwarnings("ignore")
 
-def nicegrid(ax=plt):
-    ax.grid(True, which='major', color='#666666', linestyle=':')
-    ax.grid(True, which='minor', color='#999999', linestyle=':', alpha=0.2)
-    try:
-        ax.axhline(y=0, color='k', linestyle='--',lw=1)
+def nicegrid(ax = plt):
+    try: #if np.size(ax) > 1
+        for ii in np.arange(len(ax)):
+            ax[ii].grid(True, which='major', color='#666666', linestyle=':')
+            ax[ii].grid(True, which='minor', color='#999999', linestyle=':', alpha=0.2)
+            try:
+                ax[ii].axhline(y=0, color='k', linestyle='--',lw=1)
+            except:
+                ax[ii].axhline(y=1, color='k', linestyle='--',lw=1)
+            ax[ii].minorticks_on()
     except:
-        ax.axhline(y=1, color='k', linestyle='--',lw=1)
-    ax.minorticks_on()
-
+        ax.grid(True, which='major', color='#666666', linestyle=':')
+        ax.grid(True, which='minor', color='#999999', linestyle=':', alpha=0.2)
+        try:
+            ax.axhline(y=0, color='k', linestyle='--',lw=1)
+        except:
+            ax.axhline(y=1, color='k', linestyle='--',lw=1)
+            ax.minorticks_on()
+            
 def caption(txt,fig, xloc=0.5, yloc=-0.1):
-    fig.text(xloc, yloc, txt, ha='center',size=BIGGER_SIZE,color='blue')
+    fig.text(xloc, yloc, txt, ha='center',size=MEDIUM_SIZE,color='blue')
 
 if os.path.isdir("./data/"):
     pass
