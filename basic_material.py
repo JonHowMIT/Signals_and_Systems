@@ -115,3 +115,6 @@ except:
     colors = ['k','b','r','m','g']
 
 r2d = 180/np.pi
+
+#text1 = "Clear that response closely matches input - i.e. input passes through the system"
+#plt.text(0., -0.15, text1, horizontalalignment='left',verticalalignment='center',transform=ax.transAxes,bbox=dict(facecolor='blue', alpha=0.2))
