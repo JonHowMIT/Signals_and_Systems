@@ -25,17 +25,14 @@ plt.rcParams['axes.xmargin'] = 0
 plt.rcParams['axes.grid'] = True
 plt.rcParams["figure.autolayout"] = True
 
-#from sympy import *
 import sympy as sym
 from sympy import lambdify, oo, Symbol, integrate, Heaviside, plot, Piecewise
 from sympy import exp, plot, sin, cos, printing, init_printing, simplify
 from sympy.testing.pytest import ignore_warnings
 print("Running Sympy:",sym.__version__)
-#init_printing(use_unicode=True)
 
 from scipy import signal
 from scipy.fft import fft, fftfreq, fftshift, ifft
-from scipy.signal import blackman
 
 try:
     import IPython.display as ipd
