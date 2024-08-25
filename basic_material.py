@@ -10,7 +10,10 @@ np.set_printoptions(formatter={'float': '{: 8.3f}'.format})
 
 import matplotlib
 import matplotlib.cm as cm
-from matplotlib.cm import get_cmap
+try:
+    from matplotlib.cm import get_cmap
+except:
+    from matplotlib.pyplot import get_cmap
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure, savefig
 from matplotlib import gridspec
@@ -25,14 +28,21 @@ plt.rcParams['axes.xmargin'] = 0
 plt.rcParams['axes.grid'] = True
 plt.rcParams["figure.autolayout"] = True
 
-import sympy as sym
+try:
+    import sympy as sym
+except:
+    subprocess.Popen('python3 -m pip install sympy', shell=True)    
+    import sympy as sym
 from sympy import lambdify, oo, Symbol, integrate, Heaviside, plot, Piecewise
 from sympy import exp, plot, sin, cos, printing, init_printing, simplify
 from sympy.testing.pytest import ignore_warnings
 print("Running Sympy:",sym.__version__)
 
-from scipy import signal
-from scipy.fft import fft, fftfreq, fftshift, ifft
+try:
+    from scipy import signal
+except:
+    subprocess.Popen('python3 -m pip install scipy', shell=True)    
+    from scipy.fft import fft, fftfreq, fftshift, ifft
 
 try:
     import IPython.display as ipd
@@ -115,3 +125,9 @@ r2d = 180/np.pi
 
 #text1 = "Clear that response closely matches input - i.e. input passes through the system"
 #plt.text(0., -0.15, text1, horizontalalignment='left',verticalalignment='center',transform=ax.transAxes,bbox=dict(facecolor='blue', alpha=0.2))
+
+try:
+    from colorama import Fore, Style
+except:
+    subprocess.Popen('python3 -m pip install colorama', shell=True) 
+    from colorama import Fore, Style
