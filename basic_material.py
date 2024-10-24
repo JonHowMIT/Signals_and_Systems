@@ -149,7 +149,7 @@ def tri(t, p = 1):   # tri(t/p)
         y[II] = 1 - t[II]/p
         return y  
     
-def rect(t,p):  # rect(t/p)
+def rect(t,p = 1):  # rect(t/p)
     if np.isscalar(t):
         if t <= -p/2 or t > p/2:
             return 0
