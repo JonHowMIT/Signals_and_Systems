@@ -67,11 +67,6 @@ plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
 plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
-def U(t):
-    u = t*0
-    u[t >= 0] = 1
-    return u
-
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -131,3 +126,36 @@ try:
 except:
     subprocess.Popen('python3 -m pip install colorama', shell=True) 
     from colorama import Fore, Style
+
+# frequently used functions
+def U(t):
+    u = np.zeros_like(t)
+    u[t >= 0] = 1
+    return u
+
+def tri(t, p = 1):   # tri(t/p)
+    if np.isscalar(t):
+        if t <= -p or t > p:
+            return 0
+        if t < 0:
+            return 1 + t/p
+        else:
+            return 1 - t/p
+    else:  
+        y = np.zeros_like(t)
+        II = np.where((-1.0 < t/p)*(t/p <= 0.0))
+        y[II] = 1 + t[II]/p
+        II = np.where((0.0 < t/p)*(t/p <= 1.0))
+        y[II] = 1 - t[II]/p
+        return y  
+    
+def rect(t,p):  # rect(t/p)
+    if np.isscalar(t):
+        if t <= -p/2 or t > p/2:
+            return 0
+        else:
+            return 1
+    else:
+        y = np.zeros_like(t)
+        y[np.where((-1/2 < t/p)*(t/p <= 1/2))] = 1.0
+        return y  
